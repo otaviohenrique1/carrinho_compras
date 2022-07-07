@@ -6,25 +6,31 @@ interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export function Container(props: ContainerProps) {
+  const { children } = props;
+
   return (
-    <ContainerEstilizado>
-      <Box>
-        {props.children}
-      </Box>
+    <ContainerEstilizado {...props}>
+      <Center width="700px">
+        {children}
+      </Center>
     </ContainerEstilizado>
   );
 }
 
-const ContainerEstilizado = styled.div`
+const ContainerEstilizado = styled.div<MarginPaddingStyleProps>`
   display: flex;
   justify-content: center;
   padding-top: 100px;
   padding-bottom: 100px;
 `;
 
-const Box = styled.div`
+interface CenterStyleProps {
+  width: string;
+}
+
+const Center = styled.div<CenterStyleProps>`
   background-color: white;
-  width: 700px;
+  width: ${(props) => props.width};
   display: flex;
   flex-direction: column;
   justify-content: start;

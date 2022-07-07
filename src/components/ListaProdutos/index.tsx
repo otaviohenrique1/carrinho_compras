@@ -5,7 +5,9 @@ const ListaProdutosEstilizada = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 20px 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-inline-start: 0 !important;
 `;
 
 interface ListaProdutosProps {

@@ -44,6 +44,7 @@ export function Carrinho(props: CarrinhoProps) {
                 sellingPrice={(item.sellingPrice/100)}
                 imageUrl={item.imageUrl}
                 detailUrl={item.detailUrl}
+                on_click={() => {}}
               />
             );
           })}

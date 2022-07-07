@@ -2,7 +2,7 @@ import { HTMLAttributes } from "react";
 import styled from "styled-components";
 
 const SeparadorEstilizado = styled.hr`
-  width: 99%;
+  width: 100%;
   padding: 0;
   margin: 0;
 `;

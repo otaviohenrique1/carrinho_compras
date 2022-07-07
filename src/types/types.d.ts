@@ -1,3 +1,19 @@
+interface MarginPaddingStyleProps {
+  margin_bottom?: string;
+  margin_top?: string;
+  margin_left?: string;
+  margin_right?: string;
+  padding_bottom?: string;
+  padding_top?: string;
+  padding_left?: string;
+  padding_right?: string;
+}
+
+interface WidthHeightStyleProps {
+  width?: string;
+  height?: string;
+}
+
 interface Produto {
   uniqueId: string;
   id: string;

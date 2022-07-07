@@ -7,20 +7,23 @@ export interface ItemProps {
   sellingPrice: number;
   imageUrl: string;
   detailUrl: string;
+  on_click: () => void;
 }
 
 export function Item(props: ItemProps) {
+  const { imageUrl, detailUrl, name, price, sellingPrice, on_click } = props;
+
   return (
     <ItemEstilizado>
       <Col>
-        <Imagem src={props.imageUrl} alt={props.detailUrl} />
+        <Imagem src={imageUrl} alt={detailUrl} />
         <ItemDadosContainer>
-          <span>{props.name}</span>
-          <span>{`R$ ${ajustaPreco(props.price)}`}</span>
-          <span>{`R$ ${ajustaPreco(props.sellingPrice)}`}</span>
+          <span>{name}</span>
+          <span>{`R$ ${ajustaPreco(price)}`}</span>
+          <span>{`R$ ${ajustaPreco(sellingPrice)}`}</span>
         </ItemDadosContainer>
       </Col>
-      <AddButton type="button">+</AddButton>
+      <AddButton type="button" onClick={on_click}>+</AddButton>
     </ItemEstilizado>
   );
 }
