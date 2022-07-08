@@ -1,6 +1,7 @@
 import { AnchorHTMLAttributes, ReactNode } from "react";
 import { Link, To } from "react-router-dom";
 import styled from "styled-components";
+import { BotaoCssBase } from "../BotaoCssBase";
 
 interface BotaoLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   to: To;
@@ -19,15 +20,6 @@ export function BotaoLink(props: BotaoLinkProps) {
 }
 
 const BotaoLinkEstilizado = styled(Link)`
-  margin-bottom: 20px;
-  margin-top: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
   text-decoration: none;
-  width: 90%;
-  background-color: royalblue;
-  color: white;
-  font-size: 25px;
-  border-radius: 10px;
-  text-align: center;
+  ${BotaoCssBase}
 `;

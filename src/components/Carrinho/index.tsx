@@ -1,11 +1,11 @@
 import { Container } from '../Container';
 import styled from "styled-components";
 import { Titulo } from '../Titulo';
-import { ContainerBotoes } from '../Botoes/Botao';
+import { ContainerBotoes } from '../Botoes/Botao1';
 import { Separador } from '../Separador';
-import { Preco } from '../PrecoTotal';
-import { ListaProdutos } from '../ListaProdutos';
-import { Item, ItemProps } from "../Item";
+import { PrecoTotal } from '../PrecoTotal';
+import { ListaProdutos } from '../Listas/ListaProdutos';
+import { Item, ItemProps } from "../Listas/Item";
 
 const Produtos = styled.div`
   background-color: white;
@@ -50,7 +50,7 @@ export function Carrinho(props: CarrinhoProps) {
           })}
         </ListaProdutos>
         <Separador />
-        <Preco valor_preco={(props.valor_preco_total/100)} />
+        <PrecoTotal valor_preco={(props.valor_preco_total/100)} />
         <Separador />
         <ContainerBotoes
           label_button="Finalizar compra"

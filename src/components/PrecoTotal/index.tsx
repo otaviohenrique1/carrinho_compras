@@ -25,7 +25,7 @@ interface PrecoProps {
   valor_preco: number;
 }
 
-export function Preco(props: PrecoProps) {
+export function PrecoTotal(props: PrecoProps) {
   const preco_total = ajustaPreco(props.valor_preco);
   return (
     <PrecoEstilizado>
