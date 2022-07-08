@@ -7,7 +7,7 @@ import { Titulo } from "../../components/Titulo";
 export function Home() {
   return (
     <Container>
-      <Titulo titulo="HomePage" />
+      <Titulo titulo="Menu" />
       <Separador />
       <BotaoLink to="/produtos">Produtos</BotaoLink>
       <Separador />

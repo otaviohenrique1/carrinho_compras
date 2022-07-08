@@ -15,13 +15,6 @@ interface CarrinhoContextProps {
 }
 
 const valores_iniciais_carrinho = {
-  // dataCarrinho: [{
-  //   name: '',
-  //   price: 0,
-  //   sellingPrice: 0,
-  //   imageUrl: '',
-  //   detailUrl: '',
-  // }],
   dataCarrinho: [],
   setDataCarrinho: () => {},
 };
@@ -36,12 +29,7 @@ export function CarrinhoContextProvider(props: CarrinhoContextProviderProps) {
   const [dataCarrinho, setDataCarrinho] = useState<ProdutoCarrinho[]>(valores_iniciais_carrinho.dataCarrinho);
 
   return (
-    <CarrinhoContext.Provider
-      value={{
-        dataCarrinho,
-        setDataCarrinho
-      }}
-    >
+    <CarrinhoContext.Provider value={{ dataCarrinho, setDataCarrinho }}>
       {props.children}
     </CarrinhoContext.Provider>
   );

@@ -9,11 +9,6 @@ interface MarginPaddingStyleProps {
   padding_right?: string;
 }
 
-interface WidthHeightStyleProps {
-  width?: string;
-  height?: string;
-}
-
 interface Produto {
   uniqueId: string;
   id: string;

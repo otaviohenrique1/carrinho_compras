@@ -1,6 +1,6 @@
 import { BotaoLink } from '../../components/Botoes/BotaoLink';
 import { Container } from '../../components/Container'
-import { Item } from '../../components/Listas/Item';
+import { ItemProdutos } from '../../components/Listas/ItemProdutos';
 import { ListaProdutos } from '../../components/Listas/ListaProdutos';
 import { Separador } from '../../components/Separador';
 import { Titulo } from '../../components/Titulo';
@@ -22,7 +22,7 @@ export function Produtos() {
           const { uniqueId, name, price, sellingPrice, imageUrl, detailUrl } = item;
 
           return (
-            <Item
+            <ItemProdutos
               key={index}
               name={name}
               price={(price / 100)}
@@ -30,10 +30,7 @@ export function Produtos() {
               imageUrl={imageUrl}
               detailUrl={detailUrl}
               on_click={() => {
-                setDataCarrinho([...dataCarrinho, {
-                  uniqueId, name, price, sellingPrice, imageUrl, detailUrl,
-                }]);
-                console.log(dataCarrinho);
+                setDataCarrinho([...dataCarrinho, { uniqueId, name, price, sellingPrice, imageUrl, detailUrl }]);
               }}
             />
           );

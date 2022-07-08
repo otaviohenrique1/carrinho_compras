@@ -1,30 +1,25 @@
-import { useEffect, useState } from 'react'
-import { BotaoLink } from '../../components/Botoes/BotaoLink'
-import { Container } from '../../components/Container'
-import { ListaProdutos } from '../../components/Listas/ListaProdutos'
-import { Separador } from '../../components/Separador'
-import { Titulo } from '../../components/Titulo'
+import { useEffect, useState } from 'react';
+import { BotaoLink } from '../../components/Botoes/BotaoLink';
+import { Container } from '../../components/Container';
+import { ListaProdutos } from '../../components/Listas/ListaProdutos';
+import { Separador } from '../../components/Separador';
+import { Titulo } from '../../components/Titulo';
 import { useContext } from "react";
 import { CarrinhoContext, ProdutoCarrinho } from "../../context/carrinho/index";
-import { ajustaPreco } from '../../utils/utils'
-import styled, { css } from 'styled-components'
-import { BotaoCssBase } from '../../components/Botoes/BotaoCssBase'
-import { PrecoTotal } from '../../components/PrecoTotal'
-import { Item2 } from '../../components/Listas/Item2'
-import BotaoPadrao from '../../components/Botoes/BotaoPadrao'
-
-interface DataTypes extends ProdutoCarrinho {
-  quantidade: number
-}
+import styled from 'styled-components';
+import { BotaoCssBase } from '../../components/Botoes/BotaoCssBase';
+import { PrecoTotal } from '../../components/PrecoTotal';
+import { ItemCarrinho } from '../../components/Listas/ItemCarrinho';
+import BotaoPadrao from '../../components/Botoes/BotaoPadrao';
+import { useNavigate } from 'react-router-dom';
 
 export function CarrinhoCompras() {
-  const { dataCarrinho } = useContext(CarrinhoContext);
-  const [data, setData] = useState<DataTypes[]>([]);
+  const { dataCarrinho, setDataCarrinho } = useContext(CarrinhoContext);
+  const [data, setData] = useState<ProdutoCarrinho[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    let resultado = [];
-    dataCarrinho.forEach(() => {});
-    // setData(dataCarrinho);
+    setData(dataCarrinho);
   }, [])
 
   return (
@@ -39,14 +34,21 @@ export function CarrinhoCompras() {
             const { name, price, sellingPrice, imageUrl, detailUrl } = item;
 
             return (
-              <Item2
+              <ItemCarrinho
                 key={index}
                 name={name}
                 price={(price / 100)}
                 sellingPrice={(sellingPrice / 100)}
                 imageUrl={imageUrl}
                 detailUrl={detailUrl}
-                quantidade={100}
+                on_click={() => {
+                  let resultado = dataCarrinho.filter((item, i) => {
+                    return i !== index
+                  });
+
+                  setDataCarrinho(resultado);
+                  setData(resultado);
+                }}
               />
             );
           })
@@ -57,7 +59,9 @@ export function CarrinhoCompras() {
         valor_preco={data.reduce((valorAnterior, valorAtual) => valorAnterior + (valorAtual.price / 100), 0)}
       />
       <Separador />
-      <BotaoPadrao onClick={() => { }}>Finalizar Compra</BotaoPadrao>
+      <BotaoPadrao onClick={() => {
+          navigate('/tela_mensagem');
+      }}>Finalizar Compra</BotaoPadrao>
     </Container>
   )
 }
